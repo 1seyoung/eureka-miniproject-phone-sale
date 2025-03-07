@@ -1,0 +1,15 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql-eureka-project-db
+    environment:
+      MYSQL_DATABASE: eureka_project_db
+      MYSQL_ROOT_PASSWORD: 1234
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./sql-scripts:/docker-entrypoint-initdb.d  # SQL 초기화 스크립트 추가
+      - mysql_data:/var/lib/mysql  # 볼륨 이름을 일관되게 맞춤
+
+volumes:
+  mysql_data:
