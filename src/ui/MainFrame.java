@@ -95,9 +95,6 @@ public class MainFrame extends JFrame {
       public void onHourChanged(int hour) {
         if (hour == 9) {
           addLog("🏪 09:00 - 영업 시작!");
-        } else if (hour == 22) {
-          addLog("🔄 22:00 - 재고 관리 실행 중...");
-          manageInventory();
         } else if (hour == 1) {
           addLog("🚚 01:00 - 본사 배송 도착!");
           receiveDeliveryFromHeadquarters();

@@ -60,7 +60,7 @@ public class InventoryService {
 
     for (Product product : products) {
       if (product.getStoreQuantity() < 5 && product.getWarehouseQuantity() > 0) {
-        int transferQty = Math.min(5 - product.getStoreQuantity(), product.getWarehouseQuantity());
+        int transferQty = Math.min(10 - product.getStoreQuantity(), product.getWarehouseQuantity());
 
         if (transferQty > 0) {
           int newStoreQty = product.getStoreQuantity() + transferQty;
@@ -82,9 +82,6 @@ public class InventoryService {
     }
   }
 
-  /**
-   * 1시: 본사에서 창고로 배송
-   */
   /**
    * 1시: 본사에서 창고로 배송
    */
@@ -112,7 +109,7 @@ public class InventoryService {
 
     for (Product product : products) {
       // 기본 추가 수량 5개 설정 (기존 3개에서 변경)
-      int additionalQty = 5;
+      int additionalQty = 15;
 
       // 대기 주문이 있는 경우 해당 수량만큼 추가
       if (waitingOrderCounts.containsKey(product.getProductId())) {
